@@ -27,6 +27,7 @@ import io.netty.util.internal.InternalThreadLocalMap;
 import io.netty.util.internal.PlatformDependent;
 import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
+import org.omg.CORBA.INTERNAL;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedChannelException;
@@ -261,6 +262,7 @@ public final class ChannelOutboundBuffer {
             decrementPendingOutboundBytes(size, false, true);
         }
 
+        NIO_BUFFERS.remove();
         // recycle the entry
         e.recycle();
 
